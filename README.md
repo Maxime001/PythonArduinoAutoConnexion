@@ -16,3 +16,13 @@ Python code :
 
 > By default, this script just read the json object of the arduino.
 
+
+How to install Python 2.7 ?
+> sudo apt-get update
+> sudo apt-get upgrade
+> wget --no-check-certificate https://www.python.org/ftp/python/2.7.11/Python-2.7.11.tgz
+> tar -xzf Python-2.7.11.tgz
+> cd Python-2.7.11
+> ./configure 
+> make
+> sudo make install 
