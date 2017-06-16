@@ -120,6 +120,7 @@ class FindSerialPort:
             print("Timeout for this COM port")
             print(str(self.serialPort) + " has been added to forbiden port for this arduino")
             print("")
+        self.ser.close()
         self.errorAddToForbiddenArray()
 
 
@@ -129,17 +130,21 @@ class FindSerialPort:
                 self.data['id']) + " || Excepted ID : " + str(self.sensorId) + ")")
             print(str(self.serialPort) + " has been added to forbiden port for this arduino")
             print("")
+        self.ser.close()
         self.errorAddToForbiddenArray()
 
     def errorNotAJsonObject(self):
         print("Bad arduino : No Json Object detected, checking others serial port ... ")
         print(str(self.serialPort) + " has been added to forbiden port for this arduino")
+        self.ser.close()
         self.errorAddToForbiddenArray()
 
     def errorAddToForbiddenArray(self):
+        self.ser.close()
         self.forbiddenComPort.append(self.num)
         self.getSerialPort(self.forbiddenComPort)
 
     def errorNoSerialFounded(self):
+        self.ser.close()
         print("")
         cprint('Info Error, no serial port found for this sensor (sensor ID : ' + str(self.sensorId) + ' - Sensor name : '+ self.sensorName +')', 'white', 'on_red')
