@@ -7,6 +7,7 @@ Automatic connection between a python script and one or more arduinos
 How to use ? 
 
 Arduino code :
+- Download and install the package ArduinoJson (https://github.com/bblanchon/ArduinoJson)
 - Take an arduino, send the programm placed in the folder arduinoProgram. 
 - Just set-up the ID of the arduino line 18 (you can keep the default ID)
 
