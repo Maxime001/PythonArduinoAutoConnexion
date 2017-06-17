@@ -145,6 +145,5 @@ class FindSerialPort:
         self.getSerialPort(self.forbiddenComPort)
 
     def errorNoSerialFounded(self):
-        self.ser.close()
         print("")
         cprint('Info Error, no serial port found for this sensor (sensor ID : ' + str(self.sensorId) + ' - Sensor name : '+ self.sensorName +')', 'white', 'on_red')
