@@ -29,5 +29,6 @@ void printResult(){
   root["id"] = idArduino;
   root["success"] = 1;
   root.printTo(Serial);
+  Serial.println();
   delay(timer);
 }
