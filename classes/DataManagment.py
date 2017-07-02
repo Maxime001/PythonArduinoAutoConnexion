@@ -27,6 +27,7 @@ class DataManagment:
     def readData(self):
         while(True):
             self.data = self.ser.readline()
+            self.ser.flushInput()
             if(self.data != ""):
                 self.date = datetime.now()
                 print("----------------------------------")
