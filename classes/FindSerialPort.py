@@ -55,7 +55,7 @@ class FindSerialPort:
         for self.num in range(0, 22):
             self.serialPort = self.comStr + str(self.num)
             try:
-                self.ser = serial.Serial(self.serialPort, 9600, timeout=0)
+                self.ser = serial.Serial(self.serialPort, 9600, timeout=None)
 
                 if (self.forbiddenComPort.count(self.num) == 0):
                     if (self.silentMode == False):
@@ -91,6 +91,7 @@ class FindSerialPort:
 
     def getData(self):
         self.data = self.ser.readline()
+        self.ser.flushInput()
         startTimeLeft = time.time()
         timeOut = None
         while (self.data == ""):
@@ -107,6 +108,7 @@ class FindSerialPort:
             # starting reading port after 5 seconds
             if(float(time.time() - startTimeLeft) > float(5.0)):
                 self.data = self.ser.readline()
+                self.ser.flushInput()
             time.sleep(0.05)
         print("")
         if(self.data != False):
